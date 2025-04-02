@@ -621,6 +621,11 @@ require('lazy').setup({
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
             end, '[T]oggle Inlay [H]ints')
           end
+
+          -- Terminal
+          map('<leader>to', ':ToggleTerm size=12<CR>', '[T]oggle [O]ne bottom terminal')
+          map('<leader>ts', ':2ToggleTerm<CR>', '[T]oggle [S]econd terminal')
+          map('<leader>ta', ':ToggleTermToggleAll<CR>', '[T]oggle [A]ll terminals')
         end,
       })
 
@@ -1002,7 +1007,7 @@ require('lazy').setup({
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
