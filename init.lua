@@ -195,6 +195,11 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- Terminal
+vim.keymap.set('n', '<leader>to', ':ToggleTerm size=12<CR>', { desc = '[T]oggle [O]ne bottom terminal' })
+vim.keymap.set('n', '<leader>ts', ':2ToggleTerm<CR>', { desc = '[T]oggle [S]econd terminal' })
+vim.keymap.set('n', '<leader>ta', ':ToggleTermToggleAll<CR>', { desc = '[T]oggle [A]ll terminals' })
+
 -- NOTE: Some terminals have coliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
 -- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
@@ -621,11 +626,6 @@ require('lazy').setup({
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
             end, '[T]oggle Inlay [H]ints')
           end
-
-          -- Terminal
-          map('<leader>to', ':ToggleTerm size=12<CR>', '[T]oggle [O]ne bottom terminal')
-          map('<leader>ts', ':2ToggleTerm<CR>', '[T]oggle [S]econd terminal')
-          map('<leader>ta', ':ToggleTermToggleAll<CR>', '[T]oggle [A]ll terminals')
         end,
       })
 
