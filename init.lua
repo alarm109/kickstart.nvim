@@ -209,11 +209,6 @@ vim.keymap.set('n', '<leader>to', ':ToggleTerm size=12<CR>', { desc = '[T]oggle 
 vim.keymap.set('n', '<leader>ts', ':2ToggleTerm<CR>', { desc = '[T]oggle [S]econd terminal' })
 vim.keymap.set('n', '<leader>ta', ':ToggleTermToggleAll<CR>', { desc = '[T]oggle [A]ll terminals' })
 
--- Terminal
-vim.keymap.set('n', '<leader>to', ':ToggleTerm size=12<CR>', { desc = '[T]oggle [O]ne bottom terminal' })
-vim.keymap.set('n', '<leader>ts', ':2ToggleTerm<CR>', { desc = '[T]oggle [S]econd terminal' })
-vim.keymap.set('n', '<leader>ta', ':ToggleTermToggleAll<CR>', { desc = '[T]oggle [A]ll terminals' })
-
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
 -- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
