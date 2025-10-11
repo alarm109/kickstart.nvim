@@ -425,7 +425,11 @@ require('lazy').setup({
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
-        -- pickers = {}
+        pickers = {
+          find_files = {
+            hidden = true,
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
@@ -1063,6 +1067,23 @@ end, { desc = '[H]arpoon previous' })
 vim.keymap.set('n', '<leader>hj', function()
   harpoon:list():next()
 end, { desc = '[H]arpoon next' })
+
+-- Check and create .rgignore if it doesn't exist
+local home = os.getenv 'HOME'
+local rgignore_path = home .. '/.rgignore'
+local rgignore_file = io.open(rgignore_path, 'r')
+
+if not rgignore_file then
+  rgignore_file = io.open(rgignore_path, 'w')
+  if rgignore_file then
+    rgignore_file:write '!.env*\n'
+    rgignore_file:write '!*/.env*\n'
+    rgignore_file:write '.git/'
+    rgignore_file:close()
+  end
+else
+  rgignore_file:close()
+end
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
