@@ -5,6 +5,10 @@ return {
   opts = {
     view_options = {
       show_hidden = true,
+      is_always_hidden = function(name, _)
+        local lower_name = name:lower()
+        return lower_name == '.ds_store' or name == '.git'
+      end,
     },
   },
   -- Optional dependencies
