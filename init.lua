@@ -1093,5 +1093,9 @@ end
 -- Run GuessIndent here, because auto_cmd is not working
 vim.cmd [[ autocmd BufReadPost * :silent GuessIndent ]]
 
+vim.lsp.set_log_level 'debug'
+if vim.fn.has 'nvim-0.5.1' == 1 then
+  require('vim.lsp.log').set_format_func(vim.inspect)
+end
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

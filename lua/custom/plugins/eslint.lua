@@ -1,4 +1,13 @@
 return {
   'esmuellert/nvim-eslint',
-  opts = {},
+  {
+    'neovim/nvim-lspconfig',
+    opts = {
+      servers = {
+        eslint = {
+          enabled = false,
+        },
+      },
+    },
+  },
 }
