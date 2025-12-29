@@ -840,6 +840,7 @@ require('lazy').setup({
         opts = {},
       },
       'folke/lazydev.nvim',
+      'fang2hou/blink-copilot',
     },
     --- @module 'blink.cmp'
     --- @type blink.cmp.Config
@@ -885,9 +886,15 @@ require('lazy').setup({
       },
 
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'lazydev' },
+        default = { 'lsp', 'path', 'snippets', 'lazydev', 'copilot' },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+          copilot = {
+            name = 'copilot',
+            module = 'blink-copilot',
+            score_offset = 100,
+            async = true,
+          },
         },
       },
 
